@@ -52,6 +52,17 @@ function isCurrent(href: string): boolean {
           ))
         }
         <li>
+          <button
+            type="button"
+            class="btn btn-ghost theme-toggle"
+            id="themeToggle"
+            aria-pressed="false"
+            aria-label="Toggle dark mode"
+          >
+            <span class="theme-toggle-label">Dark</span>
+          </button>
+        </li>
+        <li>
           <a
             class="btn btn-primary"
             href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Wedding inquiry")}`}
@@ -86,5 +97,27 @@ function isCurrent(href: string): boolean {
         if (toggleText) toggleText.textContent = "Menu";
       });
     });
+    var themeToggle = document.getElementById("themeToggle");
+    if (themeToggle) {
+      var label = themeToggle.querySelector(".theme-toggle-label");
+      var docEl = document.documentElement;
+      var applyTheme = function (theme) {
+        docEl.dataset.theme = theme;
+        if (typeof localStorage !== "undefined") {
+          localStorage.setItem("theme", theme);
+        }
+        var isDark = theme === "dark";
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+        if (label) {
+          label.textContent = isDark ? "Light" : "Dark";
+        }
+      };
+      var current = docEl.dataset.theme || "light";
+      applyTheme(current);
+      themeToggle.addEventListener("click", function () {
+        var next = (docEl.dataset.theme || "light") === "dark" ? "light" : "dark";
+        applyTheme(next);
+      });
+    }
   })();
 </script>

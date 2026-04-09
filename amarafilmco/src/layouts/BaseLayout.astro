@@ -51,6 +51,16 @@ const fullTitle = title.includes(siteConfig.businessName) ? title : `${title} ·
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <script>
+      const stored = typeof localStorage !== "undefined" ? localStorage.getItem("theme") : null;
+      const systemPrefersDark =
+        typeof window !== "undefined" &&
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const theme = stored === "light" || stored === "dark" ? stored : systemPrefersDark ? "dark" : "light";
+      const root = document.documentElement;
+      root.dataset.theme = theme;
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
