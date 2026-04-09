@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../site.config";
+import PrimaryCTA from "./PrimaryCTA.astro";
 
 interface Props {
   pathname: string;
@@ -63,12 +64,7 @@ function isCurrent(href: string): boolean {
           </button>
         </li>
         <li>
-          <a
-            class="btn btn-primary"
-            href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Wedding inquiry")}`}
-          >
-            Inquire
-          </a>
+          <PrimaryCTA label="Book an intro call" />
         </li>
       </ul>
     </nav>

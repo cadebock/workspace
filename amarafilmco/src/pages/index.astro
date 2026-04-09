@@ -2,6 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../site.config";
 import InstagramGrid from "../components/InstagramGrid.astro";
+import PrimaryCTA from "../components/PrimaryCTA.astro";
+import CallValueProps from "../components/CallValueProps.astro";
+import PricingPreview from "../components/PricingPreview.astro";
 ---
 
 <BaseLayout
@@ -17,11 +20,7 @@ import InstagramGrid from "../components/InstagramGrid.astro";
         Award-winning wedding photography and cinema that preserves your day—and elevates how you remember it.
       </p>
       <div class="hero-ctas">
-        <a
-          class="btn btn-primary"
-          href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Wedding inquiry")}`}
-          >Check availability</a
-        >
+        <PrimaryCTA label="Book an intro call" />
         <a class="btn btn-ghost" href="/portfolio/" style="border-color: rgba(255,255,255,0.4); color: #fff;"
           >View work</a
         >
@@ -29,6 +28,8 @@ import InstagramGrid from "../components/InstagramGrid.astro";
       <a class="scroll-hint" href="#proof">Explore the experience</a>
     </div>
   </section>
+
+  <CallValueProps />
 
   <section id="proof" class="wrap">
     <div class="section-head">
@@ -61,6 +62,8 @@ import InstagramGrid from "../components/InstagramGrid.astro";
     </div>
   </section>
 
+  <PricingPreview />
+
   <section id="instagram" class="wrap" style="padding-top: 0;">
     <div class="section-head">
       <h2>On the gram</h2>
@@ -87,10 +90,7 @@ import InstagramGrid from "../components/InstagramGrid.astro";
         that become your favorite memories.
       </p>
       <div style="margin-top: 2rem;">
-        <a
-          class="btn btn-light"
-          href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Intro call")}`}>Book a short intro call</a
-        >
+        <PrimaryCTA variant="light" label="Book an intro call" />
         <a class="btn btn-ghost" href={siteConfig.bookingPageUrl} target="_blank" rel="noreferrer" style="margin-left: 0.75rem; color: #e8e4dc; border-color: rgba(255,255,255,0.35);"
           >Schedule online</a
         >
@@ -166,12 +166,11 @@ import InstagramGrid from "../components/InstagramGrid.astro";
 
   <section id="investment" class="section-dark">
     <div class="wrap cta-band">
-      <h2>Investment</h2>
+      <h2>Ready to see if we’re a fit?</h2>
       <p>
-        Collections are tailored to your timeline, travel, and whether you want photo, film, or both. Share a few details
-        and we’ll send clear options—no pressure, no vague “packages only” PDFs.
+        Book a quick intro call and we’ll confirm availability, answer questions, and share clear next steps.
       </p>
-      <a class="btn btn-light" href="/contact/">Request a custom quote</a>
+      <PrimaryCTA variant="light" label="Book an intro call" />
     </div>
   </section>
 </BaseLayout>

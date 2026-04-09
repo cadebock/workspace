@@ -1,7 +1,9 @@
 ---
 import { siteConfig } from "../site.config";
+import PrimaryCTA from "./PrimaryCTA.astro";
 
 const year = new Date().getFullYear();
+const phone = siteConfig.phone as string;
 
 const quick = [
   { href: "/about/", label: "About" },
@@ -17,6 +19,9 @@ const quick = [
 
 <footer class="site-footer">
   <div class="wrap">
+    <div style="margin-bottom: 2rem;">
+      <PrimaryCTA variant="ghost" label="Book an intro call" class="footer-cta" />
+    </div>
     <div class="footer-inner">
       <div class="footer-brand">
         <a class="logo" href="/">{siteConfig.businessName.split(" ")[0]}</a>
@@ -41,9 +46,9 @@ const quick = [
         <h3>Start the conversation</h3>
         <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
         {
-          siteConfig.phone && (
+          phone && (
             <p style="margin: 0.5rem 0 0;">
-              <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}>{siteConfig.phone}</a>
+              <a href={`tel:${phone.replace(/\s/g, "")}`}>{phone}</a>
             </p>
           )
         }

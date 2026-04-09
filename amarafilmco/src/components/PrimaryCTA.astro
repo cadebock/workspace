@@ -1,0 +1,27 @@
+---
+import { siteConfig } from "../site.config";
+
+interface Props {
+  class?: string;
+  label?: string;
+  href?: string;
+  variant?: "primary" | "light" | "ghost";
+  target?: "_blank" | "_self";
+  rel?: string;
+}
+
+const {
+  class: className = "",
+  label = "Book an intro call",
+  href = siteConfig.bookingPageUrl,
+  variant = "primary",
+  target = "_blank",
+  rel = "noreferrer",
+} = Astro.props;
+
+const variantClass = variant === "ghost" ? "btn-ghost" : variant === "light" ? "btn-light" : "btn-primary";
+---
+
+<a class={`btn ${variantClass} ${className}`.trim()} href={href} target={target} rel={target === "_blank" ? rel : undefined}>
+  {label}
+</a>

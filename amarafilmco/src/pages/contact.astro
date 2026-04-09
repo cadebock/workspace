@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactForm from "../components/ContactForm.astro";
 import { siteConfig } from "../site.config";
+import PrimaryCTA from "../components/PrimaryCTA.astro";
+import CallValueProps from "../components/CallValueProps.astro";
 ---
 
 <BaseLayout
@@ -16,24 +18,34 @@ import { siteConfig } from "../site.config";
     </p>
   </div>
 
+  <CallValueProps />
+
   <section class="wrap" style="padding-top: 0;">
     <div class="split two">
       <div>
-        <h2 style="font-family: var(--font-serif); font-size: 1.75rem; margin: 0 0 1rem;">Send a note</h2>
-        <ContactForm />
-      </div>
-      <div>
         <h2 style="font-family: var(--font-serif); font-size: 1.75rem; margin: 0 0 0.5rem;">Book a short intro</h2>
         <p style="color: var(--text-muted); margin: 0 0 1rem;">
-          Choose a time that works for you. Replace the embed URL in <code>site.config.ts</code> with your Cal.com or
-          Calendly link.
+          Choose a time that works for you. No pressure—if we’re not a fit, we’ll tell you quickly.
         </p>
+        <div style="margin: 0 0 1rem;">
+          <PrimaryCTA label="Book an intro call" />
+          <a href={siteConfig.bookingPageUrl} target="_blank" rel="noreferrer" style="margin-left: 0.75rem;">
+            Open scheduling page
+          </a>
+        </div>
         <div class="embed-wrap" style="padding-bottom: 70%; min-height: 420px;">
           <iframe src={siteConfig.calEmbedUrl} title="Book an intro call" loading="lazy" />
         </div>
-        <p style="margin-top: 1rem;">
-          <a href={siteConfig.bookingPageUrl} target="_blank" rel="noreferrer">Open scheduling page</a>
+        <p style="margin-top: 1rem; color: var(--text-muted);">
+          Helpful to have: your date, venue/location, and whether you want photo, film, or both.
         </p>
+      </div>
+      <div>
+        <h2 style="font-family: var(--font-serif); font-size: 1.75rem; margin: 0 0 1rem;">Send a note</h2>
+        <p style="color: var(--text-muted); margin: 0 0 1rem;">
+          Prefer to start with a message? Send a few details and we’ll reply with availability and next steps.
+        </p>
+        <ContactForm />
       </div>
     </div>
   </section>

@@ -8,7 +8,7 @@ export const siteConfig = {
   description:
     "Award-winning wedding photography and films. Arizona & worldwide. We preserve and elevate the feeling of your day.",
   email: "amarafilmco@gmail.com",
-  phone: "",
+  phone: "" as string,
   location: "Arizona · travel worldwide",
   instagramUrl: "https://www.instagram.com/amarafilmco/",
   instagramHandle: "@amarafilmco",

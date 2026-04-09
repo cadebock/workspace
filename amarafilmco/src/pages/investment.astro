@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../site.config";
+import PrimaryCTA from "../components/PrimaryCTA.astro";
+import CallValueProps from "../components/CallValueProps.astro";
 ---
 
 <BaseLayout
@@ -14,6 +16,8 @@ import { siteConfig } from "../site.config";
       hours, and add-ons.
     </p>
   </div>
+
+  <CallValueProps />
 
   <section class="wrap" style="padding-top: 0;">
     <div class="grid-cards">
@@ -59,9 +63,43 @@ import { siteConfig } from "../site.config";
 
   <section class="section-dark">
     <div class="wrap cta-band">
-      <h2>Ready for numbers that match your day?</h2>
-      <p>Tell us your date, location, and what you are dreaming about—we will reply with clear options.</p>
-      <a class="btn btn-light" href="/contact/">Request a proposal</a>
+      <h2>Want a clear next step?</h2>
+      <p>
+        Book a quick intro call and we’ll confirm availability, answer questions, and share the best-fit options for your timeline.
+      </p>
+      <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+        <PrimaryCTA variant="light" label="Book an intro call" />
+        <a class="btn btn-ghost" href="/contact/" style="color: #e8e4dc; border-color: rgba(255,255,255,0.35);">
+          Prefer to message first
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head">
+      <h2>Common questions</h2>
+      <p>Quick answers to the usual “before we book a call” questions.</p>
+    </div>
+    <div class="accordion">
+      <details class="faq-item">
+        <summary>Do you travel?</summary>
+        <div class="faq-answer">
+          Yes—{siteConfig.location}. Travel is quoted clearly per event so there are no surprises.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How does booking work?</summary>
+        <div class="faq-answer">
+          After the call, we’ll send a simple proposal with clear options. A signed agreement and retainer hold your date.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>When do we receive photos / films?</summary>
+        <div class="faq-answer">
+          Sneak peeks are delivered within two weeks. Full galleries and films typically arrive within 8–12 weeks depending on season.
+        </div>
+      </details>
     </div>
   </section>
 </BaseLayout>

@@ -1,0 +1,45 @@
+---
+interface Props {
+  heading?: string;
+  photoFrom?: string;
+  filmFrom?: string;
+  bundleFrom?: string;
+  href?: string;
+}
+
+const {
+  heading = "Starting points (typical)",
+  photoFrom = "$4,800",
+  filmFrom = "$5,200",
+  bundleFrom = "$9,200",
+  href = "/investment/",
+} = Astro.props;
+---
+
+<section class="wrap" aria-label="Pricing preview" style="padding-top: 0;">
+  <div class="pricing-preview">
+    <div class="section-head" style="margin-bottom: 1.25rem;">
+      <h2 style="margin-bottom: 0.35rem;">{heading}</h2>
+      <p>
+        Clear starting points to help you plan. For exact numbers, see <a href={href}>investment</a>.
+      </p>
+    </div>
+    <div class="grid-cards">
+      <article class="card pricing-card">
+        <h3 class="pricing-card-title">Photography</h3>
+        <p class="pricing-card-price">From {photoFrom}</p>
+      </article>
+      <article class="card pricing-card">
+        <h3 class="pricing-card-title">Cinema</h3>
+        <p class="pricing-card-price">From {filmFrom}</p>
+      </article>
+      <article class="card pricing-card">
+        <h3 class="pricing-card-title">Photo + film</h3>
+        <p class="pricing-card-price">From {bundleFrom}</p>
+      </article>
+    </div>
+    <div style="margin-top: 1.25rem;">
+      <a class="btn btn-ghost" href={href}>See full investment</a>
+    </div>
+  </div>
+</section>

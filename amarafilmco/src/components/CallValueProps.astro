@@ -1,0 +1,26 @@
+---
+interface Props {
+  title?: string;
+  items?: string[];
+}
+
+const {
+  title = "What we’ll cover on the call",
+  items = [
+    "Availability + your date (fast yes/no)",
+    "What you actually want: photo, film, or both (and what matters most)",
+    "Next steps + a clear starting-point estimate",
+  ],
+} = Astro.props;
+---
+
+<section class="wrap" aria-label="Intro call details" style="padding-top: 0;">
+  <div class="card call-card">
+    <h2 class="call-card-title">{title}</h2>
+    <ul class="call-card-list">
+      {items.map((i) => (
+        <li>{i}</li>
+      ))}
+    </ul>
+  </div>
+</section>

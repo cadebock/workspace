@@ -446,6 +446,55 @@ section {
   color: var(--text-muted);
 }
 
+/* Conversion helpers */
+.call-card {
+  padding: 1.5rem;
+}
+
+.call-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0 0 0.75rem;
+}
+
+.call-card-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--text-muted);
+}
+
+.call-card-list li + li {
+  margin-top: 0.35rem;
+}
+
+.pricing-preview {
+  padding: 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.pricing-card {
+  box-shadow: none;
+  padding: 1.25rem;
+}
+
+.pricing-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+}
+
+.pricing-card-price {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  color: var(--accent);
+  margin: 0;
+}
+
 /* Services */
 .services-grid {
   display: grid;
@@ -624,6 +673,23 @@ section {
   padding: 3rem 0;
   border-top: 1px solid var(--border);
   background: var(--bg);
+}
+
+.footer-cta {
+  width: 100%;
+}
+
+.footer-cta.btn {
+  justify-content: center;
+}
+
+.footer-cta.btn-ghost {
+  background: var(--surface);
+}
+
+.footer-cta.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .footer-inner {
