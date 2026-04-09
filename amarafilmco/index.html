@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amara Film Co — Arizona Wedding Photography &amp; Cinema</title>
+  <meta name="description" content="Award-winning wedding photography and films. Arizona & worldwide. We preserve and elevate the feeling of your day.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --bg-deep: #1a1814;
+      --surface: #ffffff;
+      --text: #2a2620;
+      --text-muted: #5c564c;
+      --accent: #9a7b4f;
+      --accent-soft: rgba(154, 123, 79, 0.12);
+      --border: rgba(42, 38, 32, 0.1);
+      --shadow: 0 24px 60px rgba(26, 24, 20, 0.08);
+      --radius: 2px;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "DM Sans", system-ui, sans-serif;
+      --max: 1120px;
+      --space: clamp(3rem, 8vw, 6rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:hover { color: var(--text); }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0.5rem;
+      z-index: 100;
+      padding: 0.5rem 1rem;
+      background: var(--bg-deep);
+      color: var(--bg);
+      text-decoration: none;
+      border-radius: var(--radius);
+    }
+    .skip-link:focus { left: 0.5rem; }
+
+    .wrap {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+    }
+
+    /* Nav */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247, 244, 239, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo:hover { color: var(--accent); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.75rem;
+      font: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: var(--radius);
+      color: var(--text);
+    }
+    .nav-toggle:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 3vw, 2rem);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-list a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .nav-list a:hover { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-list {
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        top: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      }
+      .site-header.is-open .nav-list {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.85rem 1.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn-primary {
+      background: var(--bg-deep);
+      color: var(--bg);
+      border-color: var(--bg-deep);
+    }
+    .btn-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--surface);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .btn-light {
+      background: var(--surface);
+      color: var(--bg-deep);
+      border-color: var(--surface);
+    }
+    .btn-light:hover {
+      background: transparent;
+      color: var(--surface);
+      border-color: var(--surface);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: min(88vh, 900px);
+      display: grid;
+      align-items: end;
+      padding: var(--space) 0;
+      color: var(--surface);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(180deg, rgba(26, 24, 20, 0.35) 0%, rgba(26, 24, 20, 0.75) 100%),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80") center / cover no-repeat;
+    }
+    .hero .wrap { position: relative; z-index: 1; padding-bottom: 2rem; }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 14ch;
+      margin: 0 0 1.25rem;
+    }
+    .hero-lead {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      max-width: 36ch;
+      opacity: 0.92;
+      margin-bottom: 2rem;
+    }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .scroll-hint {
+      display: inline-block;
+      margin-top: 2.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      text-decoration: none;
+      color: inherit;
+    }
+    .scroll-hint:hover { opacity: 1; }
+
+    /* Sections */
+    section { padding: var(--space) 0; }
+    .section-dark {
+      background: var(--bg-deep);
+      color: #e8e4dc;
+    }
+    .section-dark .muted { color: rgba(232, 228, 220, 0.7); }
+    .section-dark a { color: #d4b896; }
+    .section-dark a:hover { color: #fff; }
+
+    .section-head {
+      max-width: 40rem;
+      margin-bottom: clamp(2rem, 5vw, 3rem);
+    }
+    .section-head h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 500;
+      line-height: 1.15;
+      margin: 0 0 0.75rem;
+    }
+    .section-head p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+    .section-dark .section-head p { color: rgba(232, 228, 220, 0.75); }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 0 0;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+    .stat strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .stat span {
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Testimonials */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .card blockquote {
+      margin: 0 0 1rem;
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    .card cite {
+      font-size: 0.8rem;
+      font-style: normal;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+    .service {
+      padding: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .service h3 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 500;
+      margin: 0 0 0.75rem;
+    }
+    .service p { margin: 0; color: var(--text-muted); }
+    .service ul {
+      margin: 1rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    /* Process */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      counter-reset: step;
+    }
+    @media (max-width: 800px) {
+      .steps { grid-template-columns: 1fr; }
+    }
+    .step {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+      position: relative;
+    }
+    .step::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .step h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin: 0 0 0.5rem;
+    }
+    .step p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
+
+    /* Portfolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+    @media (max-width: 700px) {
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .portfolio-grid figure {
+      margin: 0;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+    .portfolio-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .portfolio-grid figure:hover img { transform: scale(1.03); }
+
+    /* Pricing CTA band */
+    .cta-band {
+      text-align: center;
+      padding: clamp(3rem, 8vw, 4.5rem) 2rem;
+    }
+    .cta-band h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+      font-weight: 500;
+      margin: 0 0 0.5rem;
+    }
+    .cta-band p {
+      margin: 0 auto 1.5rem;
+      max-width: 36ch;
+      opacity: 0.85;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .footer-brand .logo { display: inline-block; margin-bottom: 0.5rem; }
+    .footer-brand p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 28ch;
+    }
+    .footer-contact h3 {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin: 0 0 0.5rem;
+      color: var(--text-muted);
+    }
+    .footer-contact a {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .footer-contact a:hover { color: var(--accent); }
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="wrap nav-inner">
+      <a class="logo" href="#top">Amara</a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu"><span class="nav-toggle-text">Menu</span></button>
+      <nav id="navMenu" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#cinema">Cinema</a></li>
+          <li><a href="#photo">Photo</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#investment">Investment</a></li>
+          <li><a class="btn btn-primary" href="mailto:amarafilmco@gmail.com?subject=Wedding%20inquiry">Inquire</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" role="presentation"></div>
+      <div class="wrap">
+        <p class="hero-eyebrow">Arizona &amp; worldwide</p>
+        <h1 id="hero-title">We sell a feeling.</h1>
+        <p class="hero-lead">Award-winning wedding photography and cinema that preserves your day—and elevates how you remember it.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="mailto:amarafilmco@gmail.com?subject=Wedding%20inquiry">Check availability</a>
+          <a class="btn btn-ghost" href="#work" style="border-color: rgba(255,255,255,0.4); color: #fff;">View work</a>
+        </div>
+        <a class="scroll-hint" href="#proof">Explore the experience</a>
+      </div>
+    </section>
+
+    <section id="proof" class="wrap">
+      <div class="section-head">
+        <h2>Trusted by couples who wanted more than snapshots.</h2>
+        <p>Limited dates each season—so every film and gallery gets the attention it deserves.</p>
+      </div>
+      <div class="stats" role="list">
+        <div class="stat" role="listitem">
+          <strong>15+</strong>
+          <span>Years documenting love</span>
+        </div>
+        <div class="stat" role="listitem">
+          <strong>500+</strong>
+          <span>Weddings &amp; celebrations</span>
+        </div>
+        <div class="stat" role="listitem">
+          <strong>AZ</strong>
+          <span>Based · Travel worldwide</span>
+        </div>
+      </div>
+      <div class="grid-cards" style="margin-top: 2.5rem;">
+        <article class="card">
+          <blockquote>“We were in tears—your work felt like a film, not a highlight reel.”</blockquote>
+          <cite>— C. &amp; X., Scottsdale</cite>
+        </article>
+        <article class="card">
+          <blockquote>“You caught moments we didn’t even see. We’ll treasure this forever.”</blockquote>
+          <cite>— K. &amp; M., Sedona</cite>
+        </article>
+        <article class="card">
+          <blockquote>“Creative, cinematic, and so fun to relive. Worth every penny.”</blockquote>
+          <cite>— S. &amp; J., Phoenix</cite>
+        </article>
+        <article class="card">
+          <blockquote>“Our families watched together and everyone felt the emotion. Incredible.”</blockquote>
+          <cite>— B. &amp; T., Tucson</cite>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section-dark">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>An experience, not a package checklist.</h2>
+          <p class="muted">We plan with you, show up calm and prepared, and deliver work that matches the weight of the day—whether that’s an intimate desert elopement or a full weekend celebration.</p>
+        </div>
+        <p class="muted" style="max-width: 52ch; margin: 0;">From first look to last dance, we’re thinking in story: light, sound, movement, and the small in-between beats that become your favorite memories.</p>
+        <div style="margin-top: 2rem;">
+          <a class="btn btn-light" href="mailto:amarafilmco@gmail.com?subject=Intro%20call">Book a short intro call</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="cinema-photo" class="wrap" style="padding-top: calc(var(--space) * 1.1);">
+      <div class="section-head">
+        <h2>Photo &amp; cinema, built to work together.</h2>
+        <p>Most couples who regret skipping video say it once—after the day is gone. We make photo and film feel cohesive, not competing.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service" id="cinema">
+          <h3>Cinema</h3>
+          <p>Films with pacing, music, and emotion—edited to feel like you, not a template.</p>
+          <ul>
+            <li>Highlight &amp; feature-length options</li>
+            <li>Audio from vows &amp; speeches woven in</li>
+            <li>Color matched to your gallery</li>
+          </ul>
+        </div>
+        <div class="service" id="photo">
+          <h3>Photography</h3>
+          <p>Editorial, timeless imagery—posed when it matters, candid when it counts.</p>
+          <ul>
+            <li>Full-day coverage available</li>
+            <li>Online gallery &amp; print rights</li>
+            <li>Second shooter when your timeline needs it</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-head">
+        <h2>How we work</h2>
+        <p>Three clear steps from hello to delivery—so you always know what’s next.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>Inquire &amp; align</h3>
+          <p>Tell us about your day, priorities, and must-haves. We’ll confirm availability and next steps.</p>
+        </div>
+        <div class="step">
+          <h3>Plan the story</h3>
+          <p>Timeline, locations, and creative details—so we’re invisible when you need calm and present for the big beats.</p>
+        </div>
+        <div class="step">
+          <h3>Deliver the work</h3>
+          <p>Films and galleries crafted with care—ready to share, print, and revisit for decades.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="wrap">
+      <div class="section-head">
+        <h2>Selected moments</h2>
+        <p>A glimpse of tone and craft—real weddings, real light.</p>
+      </div>
+      <div class="portfolio-grid">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1606800052052-a45c2e0e7b3a?auto=format&fit=crop&w=800&q=80" alt="Bride in flowing gown in soft outdoor light" width="800" height="1000" loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Couple embracing at golden hour" width="800" height="1000" loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Wedding ceremony with floral arch" width="800" height="1000" loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1522673606160-ade2b6c91c4f?auto=format&fit=crop&w=800&q=80" alt="Bridal bouquet detail" width="800" height="1000" loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Couple walking together after ceremony" width="800" height="1000" loading="lazy">
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1529636799528-3f6769b7b01a?auto=format&fit=crop&w=800&q=80" alt="Reception tables with candlelight" width="800" height="1000" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <section id="investment" class="section-dark">
+      <div class="wrap cta-band">
+        <h2>Investment</h2>
+        <p>Collections are tailored to your timeline, travel, and whether you want photo, film, or both. Share a few details and we’ll send clear options—no pressure, no vague “packages only” PDFs.</p>
+        <a class="btn btn-light" href="mailto:amarafilmco@gmail.com?subject=Investment%20%26%20availability">Request custom quote</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="logo" href="#top">Amara</a>
+          <p>Award-winning wedding photography &amp; cinema. Arizona &amp; worldwide.</p>
+        </div>
+        <div class="footer-contact">
+          <h3>Start the conversation</h3>
+          <a href="mailto:amarafilmco@gmail.com">amarafilmco@gmail.com</a>
+        </div>
+      </div>
+      <p class="copyright">© <span id="year"></span> Amara Film Co. Mockup for presentation.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var header = document.querySelector(".site-header");
+      var toggle = document.getElementById("navToggle");
+      var menu = document.getElementById("navMenu");
+      var links = menu ? menu.querySelectorAll("a") : [];
+
+      if (toggle && menu) {
+        var toggleText = toggle.querySelector(".nav-toggle-text");
+        toggle.addEventListener("click", function () {
+          var open = header.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", open);
+          toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+          if (toggleText) toggleText.textContent = open ? "Close" : "Menu";
+        });
+        links.forEach(function (a) {
+          a.addEventListener("click", function () {
+            header.classList.remove("is-open");
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.setAttribute("aria-label", "Open menu");
+            if (toggleText) toggleText.textContent = "Menu";
+          });
+        });
+      }
+
+      var y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
