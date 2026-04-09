@@ -1,0 +1,54 @@
+---
+import { siteConfig } from "../site.config";
+
+const year = new Date().getFullYear();
+
+const quick = [
+  { href: "/about/", label: "About" },
+  { href: "/services/", label: "Services" },
+  { href: "/portfolio/", label: "Portfolio" },
+  { href: "/films/", label: "Films" },
+  { href: "/investment/", label: "Investment" },
+  { href: "/faq/", label: "FAQ" },
+  { href: "/contact/", label: "Contact" },
+  { href: "/blog/", label: "Journal" },
+];
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="logo" href="/">{siteConfig.businessName.split(" ")[0]}</a>
+        <p>{siteConfig.description}</p>
+        <p style="margin-top: 0.75rem;">
+          <a href={siteConfig.instagramUrl} rel="me noreferrer" target="_blank">{siteConfig.instagramHandle}</a>
+        </p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <h3>Explore</h3>
+        <ul>
+          {
+            quick.map(({ href, label }) => (
+              <li>
+                <a href={href}>{label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <h3>Start the conversation</h3>
+        <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+        {
+          siteConfig.phone && (
+            <p style="margin: 0.5rem 0 0;">
+              <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}>{siteConfig.phone}</a>
+            </p>
+          )
+        }
+      </div>
+    </div>
+    <p class="copyright">© {year} {siteConfig.businessName}. All rights reserved.</p>
+  </div>
+</footer>

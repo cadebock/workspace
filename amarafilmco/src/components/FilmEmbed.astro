@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  provider: "vimeo" | "youtube";
+  embedId: string;
+}
+
+const { title, subtitle, provider, embedId } = Astro.props;
+
+const src =
+  provider === "vimeo"
+    ? `https://player.vimeo.com/video/${embedId}`
+    : `https://www.youtube.com/embed/${embedId}`;
+---
+
+<div class="film-card">
+  <h3>{title}</h3>
+  {subtitle && <p class="sub">{subtitle}</p>}
+  <div class="embed-wrap">
+    <iframe
+      src={src}
+      title={title}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy"
+    />
+  </div>
+</div>

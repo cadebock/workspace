@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PortfolioGrid from "../components/PortfolioGrid.astro";
+---
+
+<BaseLayout
+  title="Portfolio"
+  description="Selected wedding photography from Arizona and beyond—garden venues, desert light, and honest moments."
+>
+  <div class="wrap page-hero">
+    <h1>Selected work</h1>
+    <p class="lead">
+      A glimpse of tone and craft. Filter by mood, or browse everything. Replace these placeholders with your own
+      galleries when you are ready.
+    </p>
+  </div>
+
+  <section class="wrap" style="padding-top: 0;">
+    <PortfolioGrid />
+  </section>
+
+  <section class="section-dark">
+    <div class="wrap cta-band">
+      <h2>Love what you see?</h2>
+      <p>Share your date and venue—we will send availability and next steps.</p>
+      <a class="btn btn-light" href="/contact/">Inquire</a>
+    </div>
+  </section>
+</BaseLayout>

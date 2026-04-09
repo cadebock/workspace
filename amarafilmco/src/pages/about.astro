@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../site.config";
+---
+
+<BaseLayout
+  title="About"
+  description="Our approach to wedding photography and cinema—calm presence, editorial craft, and story-first coverage."
+>
+  <div class="wrap page-hero">
+    <h1>An experience, not a package checklist.</h1>
+    <p class="lead">
+      We are {siteConfig.businessName}: a small team obsessed with light, sound, and the in-between moments that become
+      your favorite memories.
+    </p>
+  </div>
+
+  <section class="wrap" style="padding-top: 0;">
+    <div class="split two">
+      <div>
+        <div
+          style="aspect-ratio: 4/5; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80"
+            alt="Photographer working in natural light"
+            width="900"
+            height="1125"
+            loading="lazy"
+            style="width: 100%; height: 100%; object-fit: cover;"
+          />
+        </div>
+      </div>
+      <div>
+        <h2 class="section-head" style="margin-bottom: 1rem;">
+          <span style="font-family: var(--font-serif); font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 500;"
+            >Story first.</span
+          >
+        </h2>
+        <p style="color: var(--text-muted); margin: 0 0 1rem;">
+          Whether you are planning an intimate desert elopement or a full weekend with everyone you love, we show up
+          prepared—not performative. We collaborate with your planner, respect your ceremony, and move with the day instead
+          of stopping it.
+        </p>
+        <p style="color: var(--text-muted); margin: 0 0 1.5rem;">
+          Our work lives at the intersection of editorial composition and documentary honesty: posed when it matters,
+          candid when it counts, always true to how it felt.
+        </p>
+        <a class="btn btn-primary" href={siteConfig.bookingPageUrl} target="_blank" rel="noreferrer">Schedule an intro</a>
+        <a
+          class="btn btn-ghost"
+          href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Intro call")}`}
+          style="margin-left: 0.75rem;">Email us</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What you can expect</h2>
+        <p class="muted">Clear communication, generous coverage, and delivery you will be proud to share.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>Before the day</h3>
+          <p class="muted">Timeline alignment, location notes, and creative details so we are never guessing in the moment.</p>
+        </div>
+        <div class="step">
+          <h3>During the day</h3>
+          <p class="muted">Calm direction when you want it, quiet observation when you do not—always respectful of your guests.</p>
+        </div>
+        <div class="step">
+          <h3>After the day</h3>
+          <p class="muted">Films and galleries edited with restraint—color, pacing, and emotion that still feel like you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

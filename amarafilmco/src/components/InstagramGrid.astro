@@ -1,0 +1,19 @@
+---
+import { siteConfig } from "../site.config";
+
+const { items = siteConfig.instagramGrid } = Astro.props as {
+  items?: typeof siteConfig.instagramGrid;
+};
+---
+
+<ul class="ig-grid">
+  {
+    items.map((item) => (
+      <li>
+        <a href={item.href} rel="noopener noreferrer" target="_blank">
+          <img src={item.src} alt={item.alt} width="300" height="300" loading="lazy" />
+        </a>
+      </li>
+    ))
+  }
+</ul>

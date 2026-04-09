@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../site.config";
+---
+
+<BaseLayout
+  title="Investment"
+  description="Collections tailored to your timeline, travel, and whether you want photography, cinema, or both."
+>
+  <div class="wrap page-hero">
+    <h1>Investment</h1>
+    <p class="lead">
+      Every proposal is built around your priorities. Below are typical starting points—final quotes reflect travel,
+      hours, and add-ons.
+    </p>
+  </div>
+
+  <section class="wrap" style="padding-top: 0;">
+    <div class="grid-cards">
+      <article class="card">
+        <h3 style="font-family: var(--font-serif); font-size: 1.75rem; margin: 0 0 0.5rem;">Photography</h3>
+        <p style="font-family: var(--font-serif); font-size: 2rem; color: var(--accent); margin: 0 0 1rem;">From $4,800</p>
+        <p style="color: var(--text-muted); margin: 0 0 1rem;">
+          Full-day coverage, online gallery, print release, and our editorial editing approach.
+        </p>
+        <ul style="color: var(--text-muted); margin: 0; padding-left: 1.1rem;">
+          <li>Timeline planning call</li>
+          <li>Sneak peeks within two weeks</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3 style="font-family: var(--font-serif); font-size: 1.75rem; margin: 0 0 0.5rem;">Cinema</h3>
+        <p style="font-family: var(--font-serif); font-size: 2rem; color: var(--accent); margin: 0 0 1rem;">From $5,200</p>
+        <p style="color: var(--text-muted); margin: 0 0 1rem;">
+          Highlight film with licensed music, audio from vows and speeches, and color matched to your gallery.
+        </p>
+        <ul style="color: var(--text-muted); margin: 0; padding-left: 1.1rem;">
+          <li>Feature-length upgrades available</li>
+          <li>Ceremony film add-on</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3 style="font-family: var(--font-serif); font-size: 1.75rem; margin: 0 0 0.5rem;">Photo + film</h3>
+        <p style="font-family: var(--font-serif); font-size: 2rem; color: var(--accent); margin: 0 0 1rem;">From $9,200</p>
+        <p style="color: var(--text-muted); margin: 0 0 1rem;">
+          Bundled creative direction, unified color, and one team moving with your day—not two crews competing for time.
+        </p>
+        <ul style="color: var(--text-muted); margin: 0; padding-left: 1.1rem;">
+          <li>Priority scheduling on peak dates</li>
+          <li>Aligned delivery timeline</li>
+        </ul>
+      </article>
+    </div>
+    <p style="color: var(--text-muted); max-width: 55ch; margin-top: 2rem;">
+      Travel outside the Phoenix metro is quoted per event. Destination weddings include custom logistics—ask for a
+      tailored quote.
+    </p>
+  </section>
+
+  <section class="section-dark">
+    <div class="wrap cta-band">
+      <h2>Ready for numbers that match your day?</h2>
+      <p>Tell us your date, location, and what you are dreaming about—we will reply with clear options.</p>
+      <a class="btn btn-light" href="/contact/">Request a proposal</a>
+    </div>
+  </section>
+</BaseLayout>

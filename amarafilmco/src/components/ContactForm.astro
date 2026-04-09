@@ -1,0 +1,64 @@
+---
+import { getFormspreeAction } from "../lib/form";
+import { siteConfig } from "../site.config";
+
+const action = getFormspreeAction();
+---
+
+{
+  action ? (
+    <form class="form-grid" action={action} method="POST" name="inquiry">
+      <input type="hidden" name="_subject" value="Wedding inquiry — Amara Film Co" />
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required autocomplete="name" />
+      </div>
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required autocomplete="email" />
+      </div>
+      <div class="form-field">
+        <label for="phone">Phone (optional)</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" />
+      </div>
+      <div class="form-field">
+        <label for="date">Wedding date (or range)</label>
+        <input id="date" name="date" type="text" placeholder="e.g. June 14, 2027" />
+      </div>
+      <div class="form-field">
+        <label for="location">Venue / location</label>
+        <input id="location" name="location" type="text" />
+      </div>
+      <div class="form-field">
+        <label for="interest">Interested in</label>
+        <select id="interest" name="interest">
+          <option value="">Select…</option>
+          <option value="photo">Photography</option>
+          <option value="film">Cinema / film</option>
+          <option value="both">Photo & film</option>
+          <option value="unsure">Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="message">Tell us about your day</label>
+        <textarea id="message" name="message" required placeholder="Guest count, vibe, priorities…" />
+      </div>
+      <button type="submit" class="btn btn-primary">
+        Send inquiry
+      </button>
+      <p class="form-note">Delivered via Formspree. Spam protection is enabled on their side.</p>
+    </form>
+  ) : (
+    <div>
+      <p class="form-note">
+        Add your Formspree form id as <code>PUBLIC_FORMSPREE_ID</code> in a <code>.env</code> file to enable this form.
+        Until then, email us directly:
+      </p>
+      <p>
+        <a class="btn btn-primary" href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Wedding inquiry")}`}>
+          Email {siteConfig.email}
+        </a>
+      </p>
+    </div>
+  )
+}

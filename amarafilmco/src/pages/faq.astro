@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../site.config";
+---
+
+<BaseLayout
+  title="FAQ"
+  description="Answers about booking, travel, delivery, and how we work with planners and families."
+>
+  <div class="wrap page-hero">
+    <h1>Questions</h1>
+    <p class="lead">Straight answers—if you do not see yours, reach out on the contact page.</p>
+  </div>
+
+  <section class="wrap" style="padding-top: 0; max-width: 42rem;">
+    {
+      siteConfig.faq.map((item) => (
+        <details class="faq-item">
+          <summary>{item.q}</summary>
+          <div class="faq-answer">
+            <p style="margin: 0;">{item.a}</p>
+          </div>
+        </details>
+      ))
+    }
+  </section>
+
+  <section class="wrap" style="padding-top: 2rem;">
+    <a class="btn btn-primary" href="/contact/">Contact us</a>
+  </section>
+</BaseLayout>

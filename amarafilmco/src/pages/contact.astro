@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import { siteConfig } from "../site.config";
+---
+
+<BaseLayout
+  title="Contact"
+  description="Inquire about wedding photography and cinema in Arizona and worldwide. Book an intro call or send a note."
+>
+  <div class="wrap page-hero">
+    <h1>Let’s talk</h1>
+    <p class="lead">
+      Share a few details and we will follow up with availability and next steps. Prefer to talk live? Grab a slot on the
+      calendar or email <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+    </p>
+  </div>
+
+  <section class="wrap" style="padding-top: 0;">
+    <div class="split two">
+      <div>
+        <h2 style="font-family: var(--font-serif); font-size: 1.75rem; margin: 0 0 1rem;">Send a note</h2>
+        <ContactForm />
+      </div>
+      <div>
+        <h2 style="font-family: var(--font-serif); font-size: 1.75rem; margin: 0 0 0.5rem;">Book a short intro</h2>
+        <p style="color: var(--text-muted); margin: 0 0 1rem;">
+          Choose a time that works for you. Replace the embed URL in <code>site.config.ts</code> with your Cal.com or
+          Calendly link.
+        </p>
+        <div class="embed-wrap" style="padding-bottom: 70%; min-height: 420px;">
+          <iframe src={siteConfig.calEmbedUrl} title="Book an intro call" loading="lazy" />
+        </div>
+        <p style="margin-top: 1rem;">
+          <a href={siteConfig.bookingPageUrl} target="_blank" rel="noreferrer">Open scheduling page</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 0;">
+    <h2 style="font-family: var(--font-serif); font-size: 1.35rem;">Location</h2>
+    <p style="color: var(--text-muted); margin: 0; max-width: 40ch;">
+      {siteConfig.location}. Destination weddings welcomed—travel quoted in your proposal.
+    </p>
+  </section>
+</BaseLayout>

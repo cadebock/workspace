@@ -1,0 +1,69 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../site.config";
+---
+
+<BaseLayout
+  title="Services"
+  description="Wedding photography, cinema, add-ons, and deliverables—built to work together for a cohesive story."
+>
+  <div class="wrap page-hero">
+    <h1>Photo &amp; cinema</h1>
+    <p class="lead">
+      Most couples book photography and film together so color, pacing, and story stay unified. Either service stands alone
+      if that fits your day.
+    </p>
+  </div>
+
+  <section class="wrap" style="padding-top: 0;">
+    <div class="services-grid">
+      <div class="service">
+        <h3>Photography</h3>
+        <p>Editorial galleries with candid backbone—moments you remember and moments you almost missed.</p>
+        <ul>
+          <li>Full-day and intimate coverage options</li>
+          <li>Online gallery with high-resolution download</li>
+          <li>Print release for personal use</li>
+          <li>Second photographer when your timeline needs it</li>
+          <li>Engagement or portrait sessions (add-on)</li>
+        </ul>
+      </div>
+      <div class="service">
+        <h3>Cinema</h3>
+        <p>Films with intentional pacing—music, vows, and speeches woven in without feeling like a template.</p>
+        <ul>
+          <li>Highlight and feature-length edits</li>
+          <li>Ceremony &amp; toasts available à la carte</li>
+          <li>Color matched to your photo gallery</li>
+          <li>Delivery for web and living-room viewing</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Add-ons &amp; upgrades</h2>
+        <p class="muted">Quoted clearly in your proposal—no surprise line items.</p>
+      </div>
+      <div class="grid-cards">
+        <article class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12);">
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; margin: 0 0 0.5rem;">Extra hours</h3>
+          <p class="muted" style="margin: 0;">For after-parties, welcome dinners, or sunrise portraits.</p>
+        </article>
+        <article class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12);">
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; margin: 0 0 0.5rem;">Travel</h3>
+          <p class="muted" style="margin: 0;">{siteConfig.location}. Custom quotes for destination weekends.</p>
+        </article>
+        <article class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12);">
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; margin: 0 0 0.5rem;">Rush delivery</h3>
+          <p class="muted" style="margin: 0;">When you need a faster turnaround for thank-you gifts or holidays.</p>
+        </article>
+      </div>
+      <div style="margin-top: 2rem;">
+        <a class="btn btn-light" href="/contact/">Tell us about your day</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

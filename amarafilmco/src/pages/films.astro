@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FilmEmbed from "../components/FilmEmbed.astro";
+import { siteConfig } from "../site.config";
+---
+
+<BaseLayout
+  title="Films"
+  description="Wedding films and highlight reels—pacing, sound, and color designed to match your photography."
+>
+  <div class="wrap page-hero">
+    <h1>Films</h1>
+    <p class="lead">
+      Sample embeds below—swap video IDs in your site config with your own reels. We support Vimeo and YouTube with
+      responsive players and accessible titles.
+    </p>
+  </div>
+
+  <section class="wrap" style="padding-top: 0;">
+    <div class="film-grid">
+      {
+        siteConfig.films.map((film) => (
+          <FilmEmbed
+            title={film.title}
+            subtitle={film.subtitle}
+            provider={film.provider}
+            embedId={film.embedId}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section-dark">
+    <div class="wrap cta-band">
+      <h2>Want this for your day?</h2>
+      <p>Ask about cinema collections or photo + film bundles on your proposal.</p>
+      <a class="btn btn-light" href="/contact/">Start the conversation</a>
+    </div>
+  </section>
+</BaseLayout>

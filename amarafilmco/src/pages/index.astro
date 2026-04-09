@@ -1,0 +1,177 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../site.config";
+import InstagramGrid from "../components/InstagramGrid.astro";
+---
+
+<BaseLayout
+  title={siteConfig.businessName}
+  description={siteConfig.description}
+>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" role="presentation"></div>
+    <div class="wrap">
+      <p class="hero-eyebrow">Arizona &amp; worldwide</p>
+      <h1 id="hero-title">We sell a feeling.</h1>
+      <p class="hero-lead">
+        Award-winning wedding photography and cinema that preserves your day—and elevates how you remember it.
+      </p>
+      <div class="hero-ctas">
+        <a
+          class="btn btn-primary"
+          href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Wedding inquiry")}`}
+          >Check availability</a
+        >
+        <a class="btn btn-ghost" href="/portfolio/" style="border-color: rgba(255,255,255,0.4); color: #fff;"
+          >View work</a
+        >
+      </div>
+      <a class="scroll-hint" href="#proof">Explore the experience</a>
+    </div>
+  </section>
+
+  <section id="proof" class="wrap">
+    <div class="section-head">
+      <h2>Trusted by couples who wanted more than snapshots.</h2>
+      <p>Limited dates each season—so every film and gallery gets the attention it deserves.</p>
+    </div>
+    <div class="stats" role="list">
+      <div class="stat" role="listitem">
+        <strong>15+</strong>
+        <span>Years documenting love</span>
+      </div>
+      <div class="stat" role="listitem">
+        <strong>500+</strong>
+        <span>Weddings &amp; celebrations</span>
+      </div>
+      <div class="stat" role="listitem">
+        <strong>AZ</strong>
+        <span>Based · Travel worldwide</span>
+      </div>
+    </div>
+    <div class="grid-cards" style="margin-top: 2.5rem;">
+      {
+        siteConfig.testimonials.map((t) => (
+          <article class="card">
+            <blockquote>“{t.quote}”</blockquote>
+            <cite>— {t.cite}</cite>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="instagram" class="wrap" style="padding-top: 0;">
+    <div class="section-head">
+      <h2>On the gram</h2>
+      <p>
+        Recent frames and behind-the-scenes—follow <a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer"
+          >{siteConfig.instagramHandle}</a
+        > for more.
+      </p>
+    </div>
+    <InstagramGrid />
+  </section>
+
+  <section id="about" class="section-dark">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>An experience, not a package checklist.</h2>
+        <p class="muted">
+          We plan with you, show up calm and prepared, and deliver work that matches the weight of the day—whether that’s
+          an intimate desert elopement or a full weekend celebration.
+        </p>
+      </div>
+      <p class="muted" style="max-width: 52ch; margin: 0;">
+        From first look to last dance, we’re thinking in story: light, sound, movement, and the small in-between beats
+        that become your favorite memories.
+      </p>
+      <div style="margin-top: 2rem;">
+        <a
+          class="btn btn-light"
+          href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Intro call")}`}>Book a short intro call</a
+        >
+        <a class="btn btn-ghost" href={siteConfig.bookingPageUrl} target="_blank" rel="noreferrer" style="margin-left: 0.75rem; color: #e8e4dc; border-color: rgba(255,255,255,0.35);"
+          >Schedule online</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section id="cinema-photo" class="wrap" style="padding-top: calc(var(--space) * 1.1);">
+    <div class="section-head">
+      <h2>Photo &amp; cinema, built to work together.</h2>
+      <p>Most couples who regret skipping video say it once—after the day is gone. We make photo and film feel cohesive, not competing.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service" id="cinema">
+        <h3>Cinema</h3>
+        <p>Films with pacing, music, and emotion—edited to feel like you, not a template.</p>
+        <ul>
+          <li>Highlight &amp; feature-length options</li>
+          <li>Audio from vows &amp; speeches woven in</li>
+          <li>Color matched to your gallery</li>
+        </ul>
+      </div>
+      <div class="service" id="photo">
+        <h3>Photography</h3>
+        <p>Editorial, timeless imagery—posed when it matters, candid when it counts.</p>
+        <ul>
+          <li>Full-day coverage available</li>
+          <li>Online gallery &amp; print rights</li>
+          <li>Second shooter when your timeline needs it</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head">
+      <h2>How we work</h2>
+      <p>Three clear steps from hello to delivery—so you always know what’s next.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3>Inquire &amp; align</h3>
+        <p>Tell us about your day, priorities, and must-haves. We’ll confirm availability and next steps.</p>
+      </div>
+      <div class="step">
+        <h3>Plan the story</h3>
+        <p>Timeline, locations, and creative details—so we’re invisible when you need calm and present for the big beats.</p>
+      </div>
+      <div class="step">
+        <h3>Deliver the work</h3>
+        <p>Films and galleries crafted with care—ready to share, print, and revisit for decades.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="wrap">
+    <div class="section-head">
+      <h2>Selected moments</h2>
+      <p>A glimpse of tone and craft—see the full <a href="/portfolio/">portfolio</a> or <a href="/films/">films</a>.</p>
+    </div>
+    <div class="portfolio-grid">
+      {
+        siteConfig.portfolio.slice(0, 6).map((item) => (
+          <figure>
+            <a href="/portfolio/">
+              <img src={item.src} alt={item.alt} width="800" height="1000" loading="lazy" />
+            </a>
+          </figure>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="investment" class="section-dark">
+    <div class="wrap cta-band">
+      <h2>Investment</h2>
+      <p>
+        Collections are tailored to your timeline, travel, and whether you want photo, film, or both. Share a few details
+        and we’ll send clear options—no pressure, no vague “packages only” PDFs.
+      </p>
+      <a class="btn btn-light" href="/contact/">Request a custom quote</a>
+    </div>
+  </section>
+</BaseLayout>

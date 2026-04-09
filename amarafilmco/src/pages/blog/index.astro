@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Journal"
+  description="Planning ideas, timelines, and wedding photography notes from Amara Film Co."
+>
+  <div class="wrap page-hero">
+    <h1>Journal</h1>
+    <p class="lead">Planning ideas, timelines, and stories worth revisiting before your day.</p>
+  </div>
+
+  <div class="wrap post-list" style="padding-bottom: var(--space);">
+    {
+      posts.map((post) => (
+        <article class="post-card">
+          <h2>
+            <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+          </h2>
+          <p class="post-meta">
+            <time datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+            {post.data.tags.length > 0 && <span> · {post.data.tags.join(", ")}</span>}
+          </p>
+          <p style="color: var(--text-muted); margin: 0;">{post.data.description}</p>
+        </article>
+      ))
+    }
+  </div>
+</BaseLayout>
