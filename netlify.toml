@@ -1,0 +1,13 @@
+[build]
+  base = "amarafilmco"
+  command = "npm run build"
+  publish = "dist"
+
+# If you add Netlify Functions later, keep them inside the site base.
+# [functions]
+#   directory = "netlify/functions"
+
+[build.environment]
+  # Keep Netlify on a modern Node compatible with Astro v5.
+  NODE_VERSION = "22"
+
